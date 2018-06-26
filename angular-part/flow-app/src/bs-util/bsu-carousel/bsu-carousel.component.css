@@ -1,0 +1,36 @@
+
+.my-carousel-img {
+    min-width:200px;
+    max-width:500px;
+    height:300px;
+    margin: auto;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+height: 100px;
+width: 100px;
+margin-top: 300px;
+outline: black;
+background-size: 100%, 100%;
+border-radius: 50%;
+border: 1px solid black;
+background-image: none;
+z-index : 10 ;
+}
+
+.carousel-control-next-icon:after
+{
+z-index : 10 ;
+content: '>';
+font-size: 55px;
+color: #499de5;
+}
+
+.carousel-control-prev-icon:after {
+z-index : 10 ;
+content: '<';
+font-size: 55px;
+color: #499de5;
+}  

@@ -1,0 +1,57 @@
+<div class="card">
+      <h4 class="card-header my-bg-primary appuye text-white">Me contacter</h4>
+    <div class="card-body fondParDefaut">
+
+  
+    <form #formContact="ngForm" 
+      (mouseenter)="onFormInit()"  class="form-horizontal">
+
+      <bsu-my-fg-label [label]="'Nom'">
+          <input [(ngModel)]="contact.nom" class="form-control" name="nom" required/> 
+       </bsu-my-fg-label>
+    
+       <bsu-my-fg-label [label]="'Prénom'">
+          <input type="text" class="form-control" name="prenom" [(ngModel)]="contact.prenom" />
+        </bsu-my-fg-label>
+     
+        <bsu-my-fg-label [label]="'Email'">
+          <input type="email" class="form-control" name="email" [(ngModel)]="contact.email" placeholder="...@..." />
+        </bsu-my-fg-label>
+
+        <bsu-my-fg-label [label]="'Téléphone'">
+            <input type="text" class="form-control" name="telephone" [(ngModel)]="contact.telephone" placeholder="si utile (mobile ou fixe)" />
+        </bsu-my-fg-label>
+
+        <bsu-my-fg-label [label]="'Adresse'">
+            <input type="text" class="form-control" name="adresse" [(ngModel)]="contact.adresse" placeholder="si utile (ville ou bien adresse plus précise)" />
+        </bsu-my-fg-label>         
+
+        <bsu-my-fg-label [label]="'Objet'">
+          <input type="text" class="form-control" name="objet" [(ngModel)]="contact.objet" />
+        </bsu-my-fg-label>
+
+        <bsu-my-fg-label [label]="'Message'">
+          <textarea rows="8" class="form-control" name="message" [(ngModel)]="contact.message" ></textarea>
+        </bsu-my-fg-label>
+
+       <div class="form-group row">
+        <div class="col-sm-offset-3 col-sm-9">
+        <input  type="button" class="btn my-bg-primary text-white"  
+            [disabled]="!formContact.form.valid"  value="Envoyer"
+            (click)="onSubmit()" />
+         </div>
+       </div>
+       <div class="form-group row">
+        <div class="col-sm-offset-3 col-sm-9">
+             {{msg}}
+         </div>
+       </div>
+    </form>
+    
+    </div> <!-- fin card-body -->
+</div> <!-- fin card -->
+
+<p>Alexandra Zanelli <i>(écrivain public de A à Z)</i></p>
+<p>Téléphone: 06 95 65 93 10</p>
+<p>Email: <a href="mailto:zanellialexandra@yahoo.fr">zanellialexandra@yahoo.fr</a></p>
+

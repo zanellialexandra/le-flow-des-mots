@@ -1,0 +1,20 @@
+<h3>Gestion des contacts / le flow des mots</h3>
+<!--
+<u>filtrage des contacts:</u><br/>
+&nbsp;&nbsp;<input type="radio" checked name="filtreContact" value="nouveaux">nouveaux<br/>
+&nbsp;&nbsp;<input type="radio" name="filtreContact" value="tous">tous<br/>
+&nbsp;&nbsp;<input type="radio" name="filtreContact" value="recents">recents<br/> -->
+<input type="button" value="actualiser liste des contacts" (click)="onRechercherContacts()"/> <br/>
+<hr/>
+  <table border="2" >
+   <tr><th>selection</th>
+       <th>date</th><th>nom</th><th>prenom</th><th>email</th><th>objet</th><th>message</th>
+  </tr>
+    <tr *ngFor="let contact of tabContacts">
+      <td><input type="checkbox" [(ngModel)]="contact.selection" />{{contact._id}}</td>
+      <td>{{contact.date}}</td><td>{{contact.nom}}</td><td>{{contact.prenom}}</td><td>{{contact.email}}</td><td>{{contact.objet}}</td><td>{{contact.message}}</td>
+    </tr>
+</table>
+action: <input type="button" value="supprimer les contacts selectionnes" (click)="onSupprimerContacts()"/> <br/>
+<span >{{msg}}</span> <br/>
+

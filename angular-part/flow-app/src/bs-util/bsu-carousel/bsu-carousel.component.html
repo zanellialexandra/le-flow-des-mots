@@ -1,0 +1,44 @@
+<div id="myCarousel" #myCarousel class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+     <!-- <li *ngFor="let i of carouselDefsIndex()" data-target="#myCarousel" 
+           [class.active]="i==0"></li> -->
+    </ul>  <!-- data-slide-to="{{i}}" -->
+  
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      
+      <div *ngFor="let def of carouselDefs"
+           class="carousel-item">
+          <a [routerLink]="[def.path]" >
+              <img [src]="def.imagePath" width="100%" alt="biographie" />
+          </a>
+      <div class="carousel-caption">xyz</div>
+      </div>
+  
+    </div>
+    
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div> <!--end of carousel -->
+
+<div class="container">
+  <ngb-carousel *ngIf="carouselDefs">
+    <ng-template ngbSlide *ngFor="let def of carouselDefs">
+        <a [routerLink]="[def.path]" >
+          <img [src]="def.imagePath" class="my-carousel-img" [alt]="def.label">
+          <div class="carousel-caption">
+            <h3>{{def.label}}</h3>
+          </div>
+        </a>
+    </ng-template>
+  </ngb-carousel>
+</div>

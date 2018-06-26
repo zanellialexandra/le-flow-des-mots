@@ -1,0 +1,34 @@
+<!--
+<li class="nav-item dropdown titre">
+    <a (click)="toggleM = !toggleM" class="nav-link dropdown-toggle titre1" 
+       data-toggle="dropdown" role="button" id="Preview"
+       aria-haspopup="true" aria-expanded="false">
+       {{label}}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="Preview" 
+    (click)="toggleM = false" (mouseleave)="toggleM = false" [class.show]="toggleM">
+      <bsu-nav-item *ngFor="let mDef of dopdownMenuDefs" 
+                subLevel="true" [menuDef]="mDef"></bsu-nav-item>
+    </div>
+  </li>
+-->
+
+<!--
+<div ngbDropdown class="d-inline-block" >
+  <button class="btn btn-outline-primary" id="myDropdown" 
+          ngbDropdownToggle>{{label}}</button>
+  <div ngbDropdownMenu aria-labelledby="myDropdown">
+    <bsu-nav-item *ngFor="let mDef of dopdownMenuDefs" 
+            subLevel="true" [menuDef]="mDef"></bsu-nav-item>
+  </div>
+</div>
+-->
+
+<li ngbDropdown class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle titre1" id="myDropdown" 
+          ngbDropdownToggle>{{label}}</a>
+  <div ngbDropdownMenu class="dropdown-menu fondParDefaut" aria-labelledby="myDropdown">
+    <bsu-nav-item *ngFor="let mDef of dopdownMenuDefs" 
+            subLevel="true" [menuDef]="mDef"></bsu-nav-item>
+  </div>
+</li>

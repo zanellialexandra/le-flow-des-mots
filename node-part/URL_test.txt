@@ -1,0 +1,5 @@
+http://localhost:8282
+http://localhost:8282/flow-des-mots/contact
+http://localhost:8282/admin_contact.html
+http://localhost:8282/admin_post.html
+http://localhost:8282/test-ws

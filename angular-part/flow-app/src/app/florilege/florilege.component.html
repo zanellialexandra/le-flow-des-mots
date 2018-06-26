@@ -1,0 +1,48 @@
+         
+
+<div class="row">
+    <div class="col-sm-12">
+
+        <ngb-tabset type="pills">
+            <ngb-tab  title="Ateliers d'écriture">
+              <ng-template ngbTabContent>
+                <div class="card my-tab-content">
+                <div class="row">
+                  <div class="col-sm-6" 
+                     *ngFor="let ctxCard of contextCardsAteliers"> 
+                     <bsu-overview-card 
+                        [title]="ctxCard.title"
+                        [smallInnerHtmlText]="ctxCard.texte"
+                        [bigModalInnerHtmlText]="ctxCard.large_html_text"
+                        [footer]="ctxCard.footer">
+                    </bsu-overview-card>
+                  </div>
+                </div>
+              </div>
+              </ng-template>
+            </ngb-tab>
+
+            <ngb-tab  title="Actualités">
+                <ng-template ngbTabContent>
+                    <div class="card my-tab-content">
+                    <div class="row">
+                      <div class="col-sm-6"
+                           *ngFor="let ctxCard of contextCardsNews" >
+                         <bsu-overview-card 
+                                [title]="ctxCard.title"
+                                [smallInnerHtmlText]="ctxCard.texte"
+                                [bigModalInnerHtmlText]="ctxCard.large_html_text"
+                                [footer]="ctxCard.footer">
+                         </bsu-overview-card>
+                     </div>
+                  </div>
+                    </div>
+                </ng-template>
+              </ngb-tab>
+        </ngb-tabset>
+       
+       <p></p>		
+       <p align="center" > <img src="./images/florilege.jpg" width="80%" /> </p>
+       
+    </div>
+    </div>
