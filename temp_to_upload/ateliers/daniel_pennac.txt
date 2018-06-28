@@ -1,4 +1,4 @@
-titre : Quand le corps s'exprime ...
+titre : Des mots corporels
 
 image:corps_leonard_de_vinci.jpg
 
