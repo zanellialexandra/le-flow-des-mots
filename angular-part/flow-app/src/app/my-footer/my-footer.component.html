@@ -13,5 +13,7 @@
   site hébergé par gandi.net
 
 </bsu-toggle-panel>
+<input type="text" [(ngModel)]="action" /> -o- <input type="text"  [(ngModel)]="pseudo" /> 
+<input type="button" value="administration du site" [hidden]="!validPseudo()" (click)="performNavigation()" />
 
 

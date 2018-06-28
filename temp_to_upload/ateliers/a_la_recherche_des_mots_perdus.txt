@@ -1,0 +1,8 @@
+titre : à la recherche des mots perdus
+
+image:mots_perdus_image.jpg
+
+resumé:
+Comment écrire un texte à partir de mots d'apparence désuète ?
+
+fichier joint : a_la_recherche_des_mots_perdus.pdf

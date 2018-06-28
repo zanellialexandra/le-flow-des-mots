@@ -1,0 +1,8 @@
+titre : hêtre ou ne pas hêtre ?
+
+image: hetre.jpg
+
+resumé:Texte de <b>Yann</b>, inspiré par une citation : <i>« Shakespeare a-t-il écrit Hamlet sur une table en hêtre ou pas en hêtre, telle est la question que je me pose. »<i>, de <u>Philippe Geluck</u>
+
+
+texte_complet : contenu (copier/coller) de hetre.html

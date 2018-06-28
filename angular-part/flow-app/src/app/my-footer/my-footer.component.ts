@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'my-footer',
@@ -7,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyFooterComponent implements OnInit {
 
-  constructor() { }
+  action : string;
+  
+  pseudo : string;
+
+  validPseudo(): boolean {
+    return (this.pseudo == "@lex@ndr@");
+  }
+
+  performNavigation(){
+     let link = ['/'+this.action]; //ou link = ['/xx'] ; sans paramètre
+     this._router.navigate( link );
+  }
+
+  constructor(private _router: Router) { }
 
   ngOnInit() {
   }

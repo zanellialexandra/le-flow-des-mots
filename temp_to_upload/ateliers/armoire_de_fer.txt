@@ -1,0 +1,10 @@
+titre : L'armoire de fer ça c'est super !
+
+image: reine_Marie-antoinette.jpg
+
+resumé:
+<p class="justifie"><b>Le samedi 19, nous nous sommes rendus aux archives nationales, à Paris, à l'occasion de la nuit des musées ! Nous y avons fait une grande découverte : l'armoire de fer.</b></p>
+<p class="justifie">Parmi les précieux documents, est conservée la dernière lettre de la reine Marie-Antoinette, en date du 16 octobre 1793, à sa belle-soeur, Madame Elizabeth de France, dans laquelle elle expose ses dernières volontés : cette missive ne parviendra jamais à sa destinataire, elle aussi exécutée par la suite. Quelques heures après la rédaction de cette ultime lettre, sa tête roulait sur l'échafaud de la place de la Révolution...</p>
+
+
+fichier_joint : texte_Yann_armoire_de_fer.pdf

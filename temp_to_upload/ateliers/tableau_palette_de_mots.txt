@@ -1,0 +1,8 @@
+titre : un tableau et autres mots
+
+image:image_carte_mali.jpg
+
+resumé:
+Il s'agissait de choisir un tableau parmi quatre et d'en raconter l'histoire.
+
+texte_complet : contenu (copier/coller) de tableau_palette_de_mots.html

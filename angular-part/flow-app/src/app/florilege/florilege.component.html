@@ -7,8 +7,8 @@
             <ngb-tab  title="Ateliers d'écriture">
               <ng-template ngbTabContent>
                 <div class="card my-tab-content">
-                <div class="row">
-                  <div class="col-sm-6" 
+                <div class="row row-eq-height">
+                  <div class="col-sm-6 mb-2" 
                      *ngFor="let ctxCard of contextCardsAteliers"> 
                      <bsu-overview-card 
                         [title]="ctxCard.title"
@@ -18,6 +18,8 @@
                     </bsu-overview-card>
                   </div>
                 </div>
+                <hr/>
+                 <a [routerLink]="['/atelier_ecriture']"><b>votre atelier d'écriture ...</b></a>
               </div>
               </ng-template>
             </ngb-tab>
@@ -25,8 +27,8 @@
             <ngb-tab  title="Actualités">
                 <ng-template ngbTabContent>
                     <div class="card my-tab-content">
-                    <div class="row">
-                      <div class="col-sm-6"
+                    <div class="row row-eq-height">
+                      <div class="col-sm-6  mb-2"
                            *ngFor="let ctxCard of contextCardsNews" >
                          <bsu-overview-card 
                                 [title]="ctxCard.title"

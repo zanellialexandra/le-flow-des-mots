@@ -25,7 +25,7 @@ export class BsuModalComponent implements OnInit {
     public openThisContext() {
       let options : object = null;
       //console.log("length="+this.innerHtmlText.length);
-      if(this.innerHtmlText && this.innerHtmlText.length > 800){
+      if(this.innerHtmlText && this.innerHtmlText.length > 400){
         options = {  size: 'lg' };
       }
       else{

@@ -23,13 +23,14 @@ export class MyHeaderComponent implements OnInit {
     },
     { label : "Florilège du mois" , path : "florilege" } , 
     { label : "Qui suis-je ?" , path : "pres_alexandra" } ,
-    { label : "contact ?" , path : "contact" } ,
+    { label : "Contact" , path : "contact" }
+    /* ,
     { label : "administration" , 
     children : [
       { label : "admin contact" , path : "admin_contact" } ,
       { label : "admin publication" , path : "admin_publication" }
       ]
-    }
+    } */
     ];
   
 

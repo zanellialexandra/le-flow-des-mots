@@ -1,0 +1,8 @@
+titre : Balade culturelle à Rouen !
+
+image: Rouen
+
+resumé:
+Découverte de huit musées rouennais !
+
+details : fichier html

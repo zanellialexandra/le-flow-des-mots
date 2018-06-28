@@ -1,0 +1,8 @@
+titre : Quand le corps s'exprime ...
+
+image:corps_leonard_de_vinci.jpg
+
+resumé:
+Atelier sur un air de « J'ai les hanches Qui s'démanchent L'épigastre Qui s'encastre L'abdomen Qui s'démène... »
+
+details : texte_Christelle_atelier_Pennac.pdf
