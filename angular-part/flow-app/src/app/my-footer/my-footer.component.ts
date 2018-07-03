@@ -17,7 +17,7 @@ export class MyFooterComponent implements OnInit {
   }
 
   performNavigation(){
-     let link = ['/'+this.action]; //ou link = ['/xx'] ; sans paramètre
+     let link = ['/ngr/'+this.action]; //ou link = ['/xx'] ; sans paramètre
      this._router.navigate( link );
   }
 

@@ -1,5 +1,6 @@
 //modules to load:
 var express = require('express');
+const path = require('path');
 const fileUpload = require('express-fileupload');
 var bodyParser = require('body-parser');
 var myGenericMongoClient = require("./my_generic_mongo_client");
@@ -171,6 +172,17 @@ function(req, res , next) {
                    function(err,tabPublications){
 					   myGenericRestExpressUtil.sendDataOrError(err,tabPublications,res);
 				   });					   
+});
+
+app.get('/ngr/*', function(req, res , next) {
+ //send SPA index.html instead of virtual relative angular routes "/ngr/*"
+ res.sendFile(path.join(__dirname, 'front-end/index.html'));
+});
+
+app.get('/sp_*', function(req, res , next) {
+// for old version 
+var path = 'index.html';
+res.redirect(path);
 });
 
 

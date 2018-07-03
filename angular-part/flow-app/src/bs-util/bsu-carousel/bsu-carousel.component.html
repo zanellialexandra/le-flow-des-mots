@@ -1,4 +1,4 @@
-
+<div style="width:100%"  myMatchSizeOfChilds="my-carousel-img" >
   <ngb-carousel id="my-carousel"  #myCarousel *ngIf="carouselDefs">
     <ng-template ngbSlide *ngFor="let def of carouselDefs">
         <a [routerLink]="[def.path]" >
@@ -9,4 +9,5 @@
         </a>
     </ng-template>
   </ngb-carousel>
+</div>
 

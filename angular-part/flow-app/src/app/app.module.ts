@@ -25,18 +25,19 @@ import { AdminContactComponent } from './admin-contact/admin-contact.component';
 
 
 
+
 const routes: Routes = [
-  { path: 'welcome', component: WelcomeComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'florilege', component: FlorilegeComponent },
-  { path: 'tarifs', component: TarifsComponent },
-  { path: 'atelier_ecriture', component: AtelierEcritureComponent },
-  { path: 'biographie_recitVie', component: BiographieComponent },
-  { path: 'administratif', component: AdministratifComponent },
-  { path: 'pres_alexandra', component: PresentationAlexandraComponent },
-  { path: 'admin_contact', component: AdminContactComponent },
-  { path: 'admin_publication', component: AdminPostComponent },
-  { path: '', redirectTo: '/welcome', pathMatch: 'full'}
+  { path: 'ngr/welcome', component: WelcomeComponent },
+  { path: 'ngr/contact', component: ContactComponent },
+  { path: 'ngr/florilege', component: FlorilegeComponent },
+  { path: 'ngr/tarifs', component: TarifsComponent },
+  { path: 'ngr/atelier_ecriture', component: AtelierEcritureComponent },
+  { path: 'ngr/biographie_recitVie', component: BiographieComponent },
+  { path: 'ngr/administratif', component: AdministratifComponent },
+  { path: 'ngr/pres_alexandra', component: PresentationAlexandraComponent },
+  { path: 'ngr/admin_contact', component: AdminContactComponent },
+  { path: 'ngr/admin_publication', component: AdminPostComponent },
+  { path: '', redirectTo: '/ngr/welcome', pathMatch: 'full'}
   ];
 
 @NgModule({

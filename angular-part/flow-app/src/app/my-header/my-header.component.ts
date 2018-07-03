@@ -14,21 +14,21 @@ export class MyHeaderComponent implements OnInit {
   myMenuDefs :MenuDefinition[] = [
     { label : "Prestations et tarifs" , 
       children : [
-        { label : "Biographie/Récit de vie" , path : "biographie_recitVie" } ,
-        { label : "Administration" , path : "administratif" },
-        { label : "Atelier d'écriture" , path : "atelier_ecriture" },
+        { label : "Biographie/Récit de vie" , path : "ngr/biographie_recitVie" } ,
+        { label : "Administration" , path : "ngr/administratif" },
+        { label : "Atelier d'écriture" , path : "ngr/atelier_ecriture" },
         { divider : true },
-        { label : "Tarifs" , path : "tarifs" }
+        { label : "Tarifs" , path : "ngr/tarifs" }
       ]
     },
-    { label : "Florilège du mois" , path : "florilege" } , 
-    { label : "Qui suis-je ?" , path : "pres_alexandra" } ,
-    { label : "Contact" , path : "contact" }
+    { label : "Florilège du mois" , path : "ngr/florilege" } , 
+    { label : "Qui suis-je ?" , path : "ngr/pres_alexandra" } ,
+    { label : "Contact" , path : "ngr/contact" }
     /* ,
     { label : "administration" , 
     children : [
-      { label : "admin contact" , path : "admin_contact" } ,
-      { label : "admin publication" , path : "admin_publication" }
+      { label : "admin contact" , path : "ngr/admin_contact" } ,
+      { label : "admin publication" , path : "ngr/admin_publication" }
       ]
     } */
     ];

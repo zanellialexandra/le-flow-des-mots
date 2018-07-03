@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class WelcomeComponent implements OnInit {
 
   carouselDefs : object[] =[
-    { label:null , imagePath:"./images/recitDeVie.jpeg" , path:"/biographie_recitVie"},
-    { label:null , imagePath:"./images/atelierEcriture.jpeg" , path:"/atelier_ecriture"},
-    { label:null , imagePath:"./images/ADMINISTRATION.jpeg" , path:"/administratif"}
+    { label:null , imagePath:"./images/recitDeVie.jpeg" , path:"/ngr/biographie_recitVie"},
+    { label:null , imagePath:"./images/atelierEcriture.jpeg" , path:"/ngr/atelier_ecriture"},
+    { label:null , imagePath:"./images/ADMINISTRATION.jpeg" , path:"/ngr/administratif"}
  ];
 
 

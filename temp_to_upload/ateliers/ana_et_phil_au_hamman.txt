@@ -1,9 +1,0 @@
-titre : Ana et Phil au hamman
-
-image:logo_sorbonne_nouvelle
-
-resumé:
-<p class="justifie">Exemple de texte produit en atelier d’écriture suivant la consigne: 
-        Utiliser les vingt-et-un mots suivants : anacoluthe, ensemble, tarabiscotée, hobbit, paume, diversité, pédiluve, inspiration, bien, flâner, philactère, drone, félin, fin, nénuphar, simple, arrosoir, abracadabrantesque, oriental, hammam et chaleur. Chaque participant en proposa un.</p>
-
-texte_complet : contenu (copier/coller) de ana_et_phil_au_hamman.html

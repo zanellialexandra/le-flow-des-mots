@@ -1,11 +1,9 @@
 <div class="row">
     <div class="offset-1 col-10" >
-     <div class="au-centre" >
-   
-      <bsu-carousel [style.display]="'inline-block'" 
-                    [carouselDefs]="carouselDefs"></bsu-carousel>
-
-    </div><!--end div au-centre -->
+    
+      <!-- div intermediaire avec inline-block pour bien gérer text-align="center" mais pertube le width="100%"-->
+          <bsu-carousel [carouselDefs]="carouselDefs"></bsu-carousel>
+    
     </div><!--end of col -->
     </div><!--end of row -->
     

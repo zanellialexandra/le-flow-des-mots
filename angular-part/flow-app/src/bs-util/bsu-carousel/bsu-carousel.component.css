@@ -1,6 +1,55 @@
-
+/*
 #my-carousel ,
 .my-carousel-img {
     width:540px;
     height:400px;
+}
+
+
+#my-carousel 
+    {
+        min-height:200px;
+    }
+*/
+
+@media screen and (max-width: 300px) {
+    #my-carousel 
+    {
+        height:150px;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-width: 520px) {
+    #my-carousel 
+    {
+        height:200px;
+    }
+}
+
+@media screen and (min-width: 520px) and (max-width: 640px) {
+   #my-carousel 
+    {
+        height:300px;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+   #my-carousel 
+    {
+        height:400px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+   #my-carousel 
+    {
+        height:600px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+   #my-carousel 
+    {
+        height:800px;
+    }
 }
