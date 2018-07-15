@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from "src/app/common/data/Contact";
 import { ContactService } from "src/app/common/service/contact.service";
+import { ViewChild } from "@angular/core";
 
 @Component({
   selector: 'app-admin-contact',
@@ -10,52 +11,82 @@ import { ContactService } from "src/app/common/service/contact.service";
 export class AdminContactComponent implements OnInit {
 
   tabContacts : Contact[] = [];
+  defaultContact = new Contact();//empty contact by default
+  selectedContact =  this.defaultContact;
   msg:string ="";
-  nbToDelete :number = 0;
-  nbDeleted :number = 0;
-  nbNotDeleted :number = 0;
+  confirmDelete :boolean = false;
 
   constructor(private _contactService: ContactService) { }
 
   ngOnInit() {
   } 
 
+  public essentielContactString(contact : Contact) :string{
+    return  contact.prenom + " " + contact.nom
+        + " , objet=" + contact.objet + " , email=" + contact.email ; 
+  }
+
+  //pour <select [(ngModel)]="selectedContact"   size="8"
+  //            (change)="onChangeSelectedContact($event)">
+  onChangeSelectedContact(evt:any){
+    this.msg="";
+    this.confirmDelete=false;
+  }
+
+  /*
+  //pour <select (change)="onChangeSelectedContactId($event)"
+  //<option *ngFor="let contact of tabContacts"
+  //[value]="contact._id">{{essentielContactString(contact)}}</option>
+  onChangeSelectedContactId(event:any){
+     let selectedContactId = event.target.value;
+     console.log("selectedContactId:" + selectedContactId);
+     //this.selectedContact = ...;
+  }
+  */
+/*
+  //pour <option *ngFor="let contact of tabContacts" 
+  //             (click)="onChangeSelectedContact(contact)">...
+  onChangeSelectedContact(contact:Contact){
+    this.selectedContact = contact;
+    this.msg="";
+    this.confirmDelete=false;
+    //console.log("selectedContact:" + JSON.stringify(this.selectedContact));
+ }
+
+
+ //<select #selectContact size="8">
+ @ViewChild('selectContact') 
+ selectContactElement : HTMLSelectElement; 
+*/
+
+ onNouveauContact(){
+  this.msg="";
+  this.defaultContact = new Contact();
+  this.selectedContact = this.defaultContact;
+ 
+ }
+
   onRechercherContacts(){
+      this.selectedContact = this.defaultContact;
+      this.confirmDelete=false;
       this._contactService.getListeContactObservable()
           .subscribe(listeContacts => { this.tabContacts = listeContacts } ,
                      error => {console.log(error); this.msg = "erreur" } 
                      );
   }
 
-  ifEndOfDelete(){
-     if(this.nbDeleted==this.nbToDelete){
-       this.msg="suppression(s) bien effectuee(s)";
+  endOfDelete(){
+       this.msg="suppression bien effectuee";
        this.onRechercherContacts();
-     }
-     else if(this.nbNotDeleted > 0){
-      this.msg="une suppression ne s'est pas bien effectuee";
-      if((this.nbDeleted + this.nbDeleted) == this.nbToDelete){
-        this.onRechercherContacts();
-      }
-     }
   }
 
-  onSupprimerContacts(){
-    let n = this.tabContacts.length;
-    this.nbToDelete = 0;
-    for(let c of this.tabContacts){
-      if(c.selection){
-        this.nbToDelete++;
-      }
-    }
-    for(let c of this.tabContacts){
-      if(c.selection){
-        this._contactService.deleteContactServerSide(c._id)
-        .subscribe((val)=>{this.nbDeleted++; this.ifEndOfDelete()},
-                  (error)=>{this.nbNotDeleted++; this.ifEndOfDelete()});
-       
-      }
-    }
+  onSupprimerContact(){
+        this._contactService.deleteContactServerSide(this.selectedContact._id)
+        .subscribe((val)=>{this.endOfDelete()},
+                  (error)=>{this.msg="echec suppression";});
+        this.confirmDelete=false;
+        this.defaultContact = new Contact();
+        this.selectedContact = this.defaultContact;      
   }
 
 }

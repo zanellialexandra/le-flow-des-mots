@@ -47,7 +47,7 @@ transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);
   } else {
-    console.log('Email sent: ' + info.response);
+    //console.log('Email sent: ' + info.response);
   }
 });
 	
@@ -78,28 +78,44 @@ app.use(express.static('front-end'));
 
 
 // à tester via postMan ou un équivalent 
+// POST : SAVE or UPDATE
 // POST flow-des-mots/contacts { "nom" : "..." , "prenom" : "..." ,"email" : "..." , "objet" : "..." , "message" : "..."   }
 app.post('/flow-des-mots/contact', function(req, res,next) {
 var contact = req.body; // JSON input data as jsObject with ok = null
-console.log("posting new contact :" +JSON.stringify(contact));
+//console.log("posting new contact :" +JSON.stringify(contact));
 var htmlTexte="<h2>nouveau contact - le flow des mots</h2><br/>"
            + "<p>"+ JSON.stringify(contact) +"</p> <br/>"
-		   + "<a href='http://le-flow-des-mots.fr/admin_contact.html'>http://le-flow-des-mots.fr/admin_contact.html</a>";
-sendSimpleEmail( mySrcEmail , myDestEmail ,  "nouveau contact - le flow des mots" ,htmlTexte , true );
-myGenericMongoClient.genericInsertOne("contacts",contact,
-	function(err,newId){
-					   contact._id=newId;
-					   myGenericRestExpressUtil.sendDataOrError(err,contact,res);// send back contact with _id
-				   });	
+		   + "<a href='http://le-flow-des-mots.fr/ngr/admin_contact'>http://le-flow-des-mots.fr/ngr/admin_contact</a>";
+if(contact){
+	sendSimpleEmail( mySrcEmail , myDestEmail ,  "nouveau contact - le flow des mots" ,htmlTexte , true );
+	if(contact._id) /* UPDATE*/{
+	 var changes = JSON.parse(JSON.stringify(contact)); //clone of contact
+     delete changes["_id"];	 
+	 //console.log ("changes:"+JSON.stringify(changes));
+	 myGenericMongoClient.genericUpdateOne("contacts",contact._id,changes,
+		function(err,results){
+						   console.log("update results:"+ results);
+						   myGenericRestExpressUtil.sendDataOrError(err,contact,res);// send back updated contact
+					   });	
+    }
+	else /*SAVE*/
+	  myGenericMongoClient.genericInsertOne("contacts",contact,
+		function(err,newId){
+						   contact._id=newId;
+						   myGenericRestExpressUtil.sendDataOrError(err,contact,res);// send back contact with _id
+					   });	
+}
 });
 
 //{ categorie : "" , titre : "" , fichier_image : null ,  resume : "" , fichier_details_name : null , texte_complet : null , lien_externe : null , date : "2018-06-01", statut : "nouveau"};
+// POST : SAVE or UPDATE
 app.post('/flow-des-mots/upload_publication', function(req, res,next) {
 var publication = JSON.parse(req.body.publication); // explicit JSON.parse() needed here because multipart / formData / upload
-console.log("posting new publication :" +JSON.stringify(publication));
+//console.log("posting or reposting new publication :" +JSON.stringify(publication));
 
-if (!req.files)
-    console.log('No files were uploaded.');
+if (!req.files){
+    //console.log('No files were uploaded.');
+}
  else{
   // req.files.fileNameXyz (ici .imageFile et .detailsFile) 
   let imageFile = req.files.imageFile;
@@ -123,18 +139,31 @@ if (!req.files)
 	  });
   }
  }
-
-myGenericMongoClient.genericInsertOne("publications",publication,
+// POST : SAVE or UPDATE
+if(publication){
+  if(publication._id)/*UPDATE*/{
+   var changes = JSON.parse(JSON.stringify(publication)); //clone of publication
+   delete changes["_id"];	 
+    //console.log ("changes:"+JSON.stringify(changes));
+   myGenericMongoClient.genericUpdateOne("publications",publication._id,changes,
+	function(err,results){
+					   console.log("update results:" + results);
+					   myGenericRestExpressUtil.sendDataOrError(err,publication,res);// send back publication
+				   });
+  }
+  else /* SAVE */
+   myGenericMongoClient.genericInsertOne("publications",publication,
 	function(err,newId){
 					   publication._id=newId;
-					   myGenericRestExpressUtil.sendDataOrError(err,publication,res);// send back contact with _id
-				   });	
+					   myGenericRestExpressUtil.sendDataOrError(err,publication,res);// send back publication with _id
+				   });
+}				   
 });
 
 
 app.delete('/flow-des-mots/contact/:contactId', function(req, res,next) {
 var contactId = req.params.contactId; 
-console.log("deleting contact of _id=:" +contactId);
+//console.log("deleting contact of _id=:" +contactId);
 myGenericMongoClient.genericDeleteOneById("contacts",contactId ,
 	    function(err,booleanResult){
 			          if(booleanResult)
@@ -146,7 +175,7 @@ myGenericMongoClient.genericDeleteOneById("contacts",contactId ,
 
 app.delete('/flow-des-mots/publication/:publicationId', function(req, res,next) {
 var publicationId = req.params.publicationId; 
-console.log("deleting publication of _id=:" +publicationId);
+//console.log("deleting publication of _id=:" +publicationId);
 myGenericMongoClient.genericDeleteOneById("publications",publicationId ,
 	    function(err,booleanResult){
 			          if(booleanResult)

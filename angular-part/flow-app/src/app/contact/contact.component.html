@@ -1,5 +1,5 @@
 <div class="card">
-      <h4 class="card-header my-bg-primary appuye text-white">Me contacter</h4>
+      <h4 class="card-header my-bg-primary appuye text-white">{{cardTitle}}</h4>
     <div class="card-body fondParDefaut">
 
   
@@ -37,7 +37,7 @@
        <div class="form-group row">
         <div class="col-sm-offset-3 col-sm-9">
         <input  type="button" class="btn my-bg-primary text-white"  
-            [disabled]="!formContact.form.valid"  value="Envoyer"
+            [disabled]="!formContact.form.valid"  [value]="sendButtonLabel"
             (click)="onSubmit()" />
          </div>
        </div>
@@ -50,8 +50,8 @@
     
     </div> <!-- fin card-body -->
 </div> <!-- fin card -->
-
+<div *ngIf="!withoutCoord">
 <p>Alexandra Zanelli <i>(écrivain public de A à Z)</i></p>
 <p>Téléphone: 06 95 65 93 10</p>
 <p>Email: <a href="mailto:zanellialexandra@yahoo.fr">zanellialexandra@yahoo.fr</a></p>
-
+</div>

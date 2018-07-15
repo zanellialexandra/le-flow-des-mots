@@ -39,7 +39,7 @@ var executeInMongoDbConnection = function(callback_with_db) {
 
 var genericUpdateOne = function(collectionName,id,changes,callback_with_err_and_results) {
 	executeInMongoDbConnection( function(db) {
-		db.collection(collectionName).updateOne( { '_id' : id }, { $set : changes } ,
+		db.collection(collectionName).updateOne( { '_id' : new ObjectID(id) }, { $set : changes } ,
 			function(err, results) {
 				if(err!=null) {
 					console.log("genericUpdateOne error = " + err);

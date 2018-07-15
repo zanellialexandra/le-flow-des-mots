@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Publication } from "src/app/common/data/Publication";
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,10 @@ export class PublicationService {
     if(categoriePost) {
       publicationUrl+=("?categorie="+categoriePost);
     }
-    return this._http.get<Publication[]>(publicationUrl );
+    return this._http.get<Publication[]>(publicationUrl )
+          //tri par ordre decroissant sur les dates de publication
+          .pipe( map( (data) => data.sort( (p1, p2) => (p1.date > p2.date) ? -1 : 1  )  )
+              ); //.pipe() maintenant indispensable pour déclencher operator map() dans rxjs récent
   }
 
   public deletePublicationServerSide(publicationId):Observable<any>{

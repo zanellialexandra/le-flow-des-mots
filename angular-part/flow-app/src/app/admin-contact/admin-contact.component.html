@@ -1,20 +1,42 @@
-<h3>Gestion des contacts / le flow des mots</h3>
-<!--
-<u>filtrage des contacts:</u><br/>
-&nbsp;&nbsp;<input type="radio" checked name="filtreContact" value="nouveaux">nouveaux<br/>
-&nbsp;&nbsp;<input type="radio" name="filtreContact" value="tous">tous<br/>
-&nbsp;&nbsp;<input type="radio" name="filtreContact" value="recents">recents<br/> -->
-<input type="button" value="actualiser liste des contacts" (click)="onRechercherContacts()"/> <br/>
-<hr/>
-  <table border="2" >
-   <tr><th>selection</th>
-       <th>date</th><th>nom</th><th>prenom</th><th>email</th><th>objet</th><th>message</th>
-  </tr>
-    <tr *ngFor="let contact of tabContacts">
-      <td><input type="checkbox" [(ngModel)]="contact.selection" />{{contact._id}}</td>
-      <td>{{contact.date}}</td><td>{{contact.nom}}</td><td>{{contact.prenom}}</td><td>{{contact.email}}</td><td>{{contact.objet}}</td><td>{{contact.message}}</td>
-    </tr>
-</table>
-action: <input type="button" value="supprimer les contacts selectionnes" (click)="onSupprimerContacts()"/> <br/>
-<span >{{msg}}</span> <br/>
+<div class="card">
+<h3 class="card-header my-bg-primary appuye text-white">Gestion des contacts / le flow des mots</h3>
+<div class="card-body fondParDefaut">
+
+<div class="row">
+ <div class="col-sm-5">  
+    <div class="card">
+        <h4 class="card-header my-bg-primary appuye text-white">Liste des contacts</h4>
+        <div class="card-body fondParDefaut">
+
+  <input type="button" value="actualiser la liste" (click)="onRechercherContacts()"/> <br/>
+  <hr/>
+  <select [(ngModel)]="selectedContact"   size="8"
+          (change)="onChangeSelectedContact($event)">
+      <option *ngFor="let contact of tabContacts"
+              [ngValue]="contact" >{{essentielContactString(contact)}}</option>
+  </select>
+  <br/><br/>
+  <input type="button" value="supprimer le contact selectionne"
+        [disabled]="!confirmDelete || selectedContact._id==null" 
+        (click)="onSupprimerContact()"/> 
+  ( après <input type="checkbox" [(ngModel)]="confirmDelete"/> confirmation )
+  <br/>  
+  <span >{{msg}}</span> <br/>
+  <hr/>
+
+  <input type="button" value="nouveau contact"
+         (click)="onNouveauContact()"/>
+  </div><!-- end of sub card-body --> 
+  </div> <!-- end of sub card -->
+ </div>
+ <div class="col-sm-7">
+    <app-contact cardTitle="contact selectionné"
+                 withoutCoord="true"
+                 sendButtonLabel="Ajouter ou Modifier"
+                 [contact]="selectedContact"></app-contact>  
+ </div>
+</div> <!-- end of row with 2 cols -->
+</div><!-- end of main card-body -->
+</div> <!-- end of main card -->
+
 

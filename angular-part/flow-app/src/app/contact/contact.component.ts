@@ -4,6 +4,7 @@ import { ContactService } from "src/app/common/service/contact.service";
 import { NgForm } from "@angular/forms";
 import { ViewChild } from "@angular/core";
 import { Validators } from "@angular/forms";
+import { Input } from "@angular/core";
 
 @Component({
   selector: 'app-contact',
@@ -13,11 +14,21 @@ import { Validators } from "@angular/forms";
 export class ContactComponent implements OnInit {
 
 msg=""; //message de statut (après envoie du contact)
-         
+      
+@Input()
+cardTitle : string = "Me contacter"; //valeur par defaut;
+
+@Input()
+withoutCoord : boolean = false; //valeur par defaut;
+
+@Input()
+sendButtonLabel : string = "Envoyer" ; //valeur par défaut
+
+@Input()
 contact : Contact = {  nom : "" , prenom : "" , adresse : null , telephone : null, 
                       email : "" , objet : "" , message : "" , 
                       date : this.convertDate(new Date()), statut : "nouveau" ,
-                      };
+                      }; //valeur par défaut;
 
 convertDate(d) {
   function pad(s) { return (s < 10) ? '0' + s : s; }
@@ -34,7 +45,7 @@ convertDate(d) {
     this._contactService.postContactObservable(this.contact)
                         .subscribe(
                           postContact => { this.contact = postContact ; 
-                                           this.msg = "contact as json: " + JSON.stringify(this.contact);} ,
+                                           this.msg = "contact bien enregistré: " + JSON.stringify(this.contact);} ,
                          error => { console.log(error); this.msg="erreur post contact"}                  
                         )
     
