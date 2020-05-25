@@ -1,7 +1,18 @@
 <a [routerLink]="['/ngr/welcome']">vers page d'accueil</a> 
 <p><i>site web "Le flow des mots" de l'activité libérale de Alexandra Zanelli (&#xC9;crivain Public - Diplômée de la Sorbonne nouvelle )</i></p>
 
-<bsu-toggle-panel [title]="'Mentions légales ...'" >
+<bsu-toggle-panel [toggleP]="'true'" [title]="'Liens vers sites externes'">
+    <ul>
+      <li><a href="https://www.franceculture.fr/" target="_new">France Culture</a></li>
+      <li><a href="https://www.mep-fr.org/" target="_new">Maison européenne de la photographie</a></li>
+      <li><a href="https://www.mdig.fr/" target="_new">Musée des impressionnismes Giverny</a></li>
+      <li><a href="https://www.guimet.fr/" target="_new">Musée Guimet</a></li>
+      <li><a href="http://www.maisonsvictorhugo.paris.fr/fr/musee-collections/visite-de-hauteville-house-guernesey" target="_new">Hauteville house Guernesey</a></li>
+    </ul> 
+</bsu-toggle-panel>
+        
+
+<bsu-toggle-panel [title]="'Mentions légales'" >
 		
   <p><b>Siret: </b> 83461375400011</p>
   <br>	  
