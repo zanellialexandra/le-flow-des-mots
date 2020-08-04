@@ -20,6 +20,7 @@ import { TarifsComponent } from './tarifs/tarifs.component';
 import { AdministratifComponent } from './administratif/administratif.component';
 import { AdminPostComponent } from './admin-post/admin-post.component';
 import { AdminContactComponent } from './admin-contact/admin-contact.component';
+import { CertificatVoltaireComponent } from './certificat-voltaire/certificat-voltaire.component';
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'ngr/administratif', component: AdministratifComponent },
   { path: 'ngr/pres_alexandra', component: PresentationAlexandraComponent },
   { path: 'ngr/admin_contact', component: AdminContactComponent },
+  { path: 'ngr/certificat-voltaire', component: CertificatVoltaireComponent },
   { path: 'ngr/admin_publication', component: AdminPostComponent },
   { path: '', redirectTo: '/ngr/welcome', pathMatch: 'full'}
   ];
@@ -54,7 +56,8 @@ const routes: Routes = [
     TarifsComponent,
     AdministratifComponent,
     AdminPostComponent,
-    AdminContactComponent
+    AdminContactComponent,
+    CertificatVoltaireComponent
   ],
   imports: [
     BrowserModule , FormsModule, BsUtilModule, NgbModule.forRoot() ,

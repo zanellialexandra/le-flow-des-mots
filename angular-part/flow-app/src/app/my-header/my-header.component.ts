@@ -21,6 +21,7 @@ export class MyHeaderComponent implements OnInit {
         { label : "Tarifs" , path : "ngr/tarifs" }
       ]
     },
+    { label : "Certificat Voltaire" , path : "ngr/certificat-voltaire" } ,
     { label : "Florilège du mois" , path : "ngr/florilege" } , 
     { label : "Qui suis-je ?" , path : "ngr/pres_alexandra" } ,
     { label : "Contact" , path : "ngr/contact" }
