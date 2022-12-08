@@ -10,7 +10,7 @@
   "author": "didier defrance",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "express-fileupload": "^0.4.0",
     "mongodb": "^3.0.1",
     "nodemailer": "^4.4.2",
